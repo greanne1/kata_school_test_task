@@ -1,11 +1,9 @@
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) {
-        String str1;
-        Scanner in = new Scanner(System.in);
-        str1 = in.nextLine();
-        String[] symbols = str1.split(" ");
+    public static String calc(String input) {
+        //String str1;
+        //Scanner in = new Scanner(System.in);
+        //str1 = in.nextLine();
+        String[] symbols = input.split(" ");
 
         try {                                             // обработала все возможные варианты неправильного ввода строки
             if (symbols.length != 3)
@@ -72,15 +70,16 @@ public class Main {
             System.out.println("Неправильно введена операция");
         }
 
+        String res = "";
+
         if (calc == 0){
-            System.out.println(result);
+            res += result;
         }
 
         try {
             if(result < 0)
                 throw new ScannerException();
             if (calc == 2) {
-                String res = "";
                 switch (result / 10) {
                     case 10 -> res += "C";
                     case 9 -> res += "CX";
@@ -104,11 +103,11 @@ public class Main {
                     case 2 -> res += "II";
                     case 1 -> res += "I";
                 }
-                System.out.println(res);
             }
         }catch(ScannerException e){
             System.out.println("т.к. в римской системе нет отрицательных чисел");
             System.exit(1);
         }
+        return res;
     }
 }

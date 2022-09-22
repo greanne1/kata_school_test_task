@@ -1,8 +1,12 @@
+import java.util.Scanner;
+
 public class Main {
+    public static void main(String [] args){
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        System.out.println(calc(input));
+    }
     public static String calc(String input) {
-        //String str1;
-        //Scanner in = new Scanner(System.in);
-        //str1 = in.nextLine();
         String[] symbols = input.split(" ");
 
         try {                                             // обработала все возможные варианты неправильного ввода строки
@@ -68,6 +72,7 @@ public class Main {
             }
         }catch(ScannerException e){
             System.out.println("Неправильно введена операция");
+            System.exit(1);
         }
 
         String res = "";
